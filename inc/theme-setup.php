@@ -37,6 +37,7 @@ function acstarter_setup() {
   // This theme uses wp_nav_menu() in one location.
   register_nav_menus( array(
     'primary' => esc_html__( 'Primary', 'acstarter' ),
+    'footer' => esc_html__( 'Footer', 'acstarter' ),
     'sitemap' => esc_html__( 'Sitemap', 'acstarter' ),
   ) );
 
@@ -69,6 +70,15 @@ function acstarter_setup() {
     'default-color' => 'ffffff',
     'default-image' => '',
   ) ) );
+
+  // Add theme support for Custom Logo.
+  add_theme_support( 'custom-logo', array(
+    'width'       => 250,
+    'height'      => 250,
+    'flex-width'  => true,
+    'flex-height' => true,
+  ) );
+  
 }
 endif;
 add_action( 'after_setup_theme', 'acstarter_setup' );

@@ -24,6 +24,30 @@ function acstarter_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if ( is_front_page() || is_home() ) {
+        $classes[] = 'homepage';
+    } else {
+        $classes[] = 'subpage';
+    }
+
+    $browsers = ['is_iphone', 'is_chrome', 'is_safari', 'is_NS4', 'is_opera', 'is_macIE', 'is_winIE', 'is_gecko', 'is_lynx', 'is_IE', 'is_edge'];
+    $classes[] = join(' ', array_filter($browsers, function ($browser) {
+        return $GLOBALS[$browser];
+    }));
+
 	return $classes;
 }
 add_filter( 'body_class', 'acstarter_body_classes' );
+
+function add_query_vars_filter( $vars ) {
+  $vars[] = "pg";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
+
+/* Fixed Gravity Form Conflict Js */
+add_filter("gform_init_scripts_footer", "init_scripts");
+function init_scripts() {
+    return true;
+}

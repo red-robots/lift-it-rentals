@@ -1,104 +1,171 @@
-.sticky {
-	display: block;
+.default-template {
+	margin-top: 90px;
 }
-
-.hentry {
-	margin: 0 0 1.5em;
+.site-main {
+	min-height: 30em;
 }
-
-.byline,
-.updated:not(.published){
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
-.faqrow {
-	width: auto;
-	overflow: hidden;
-	margin: 0 0 20px 0;	
-	background-color: rgba(255,255,255,.05);
-	border-radius: 10px;
-}
-.question {
-	width: auto;
-	float:left;
-	margin: 10px;
-	font-weight: bold;
-	font-size: 20px;
-	cursor:pointer;	
-	line-height: 1.3;
+.banner {
 	position: relative;
-	padding: 0 0 0 20px ;
-}
-.question-image {
-	width: 15px;
-	height: 15px;
-	position: absolute;
-	left: 0px;
-	top: 3px;
-	background-image: url(images/faq.png);
-	background-repeat: no-repeat;
-	background-position: 0 0;	
-}
-.question-image.close {
-	background-position: -15px 0;	
-}
-.answer {
 	width: 100%;
-	float:left;
-	margin: 10px;
-	font-size: 14px;
-	line-height: 1.3;
-	padding: 0 0 0 40px;
-	display:none;
+	margin-top: 35px;
+	@media screen and (min-width: $tabwidth) {
+		margin-top: 25px;
+	}
+
+	@media screen and (min-width: $midwidth) {
+		margin-top: 14px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+	.caption {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-align-items(center);
+	}
+	.tagline {
+		width: 100%;
+		text-align: left;
+		box-sizing: border-box;
+		padding: 0 5%;
+		font-family: $font-anton;
+		font-size: 30px;
+		line-height: 1.2;
+		color: #FFF;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 3px rgba(0,0,0,.8);
+		position: relative;
+		top: 20px;
+		@media screen and (min-width: $tabwidth) {
+			font-size: 40px;
+			width: 80%;
+		}
+		@media screen and (min-width: $midwidth) {
+			font-size: 55px;
+			width: 70%;
+		}
+		@media screen and (min-width: $deskwidth) {
+			font-size: 60px;
+			width: 75%;
+		}
+	}
 }
-.plus-minus-toggle {
-    cursor: pointer;
-    height: 21px;
-    position: absolute;
-    width: 21px;
-    left:-10px;
-    top:40%;
-    z-index:2;
-
-    &:before,
-    &:after {
-      background: #eee;
-      content: '';
-      height: 5px;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 21px;
-      transition: transform 500ms ease;
-    }
-
-    &:after {
-      transform-origin: center;
-    }
-
-    &.collapsed {
-      &:after {
-        transform: rotate(90deg);
-
-      }
-
-      &:before {
-        transform: rotate(180deg);
-      }
-    }
+.section-wwd {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	@media screen and (min-width: $midwidth) {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+	.section-title {
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 1.2;
+		margin: 0 0 35px;
+		padding-bottom: 35px;
+		border-bottom: 2px solid $color-lime-green;
+		@media screen and (min-width: $midwidth) {
+			font-size: 30px;
+		}
+	}
+	.section-content {
+		b {
+			font-size: 20px;
+		}
+	}
 }
+.services-section {
+	background: #f0f0f0;
+	background: -moz-linear-gradient(top, #f0f0f0 0%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #f0f0f0 0%,#ffffff 100%);
+	background: linear-gradient(to bottom, #f0f0f0 0%,#ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#ffffff',GradientType=0 );
+	.wrapper {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		@media screen and (min-width: $midwidth) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+	}
+	.row {
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-align-items(flex-start);
+			margin-left: -20px;
+			margin-right: -20px;
+		}
+		@media screen and (min-width: $midwidth) {
+			margin-left: -4%;
+			margin-right: -4%;
+		}
+	}
+	.item {
+		display: block;
+		box-sizing: border-box;
+		text-decoration: none;
+		color: $color__text-main;
+		cursor: pointer;
+		outline: none;
+		@media screen and (min-width: $tabwidth) {
+			width: 33.33%;
+			float: left;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		@media screen and (min-width: $midwidth) {
+			padding-left: 4%;
+			padding-right: 4%;
+		}
+	}
+	.title {
+		display: block;
+		margin: 0 0 18px;
+		border: 1px solid $color-lime-green;
+		line-height: 1.3;
+		padding: 6px 15px 5px;
+		text-transform: uppercase;
+		@include transition(all ease-out .3s);
+	}
+	.icon {
+		display: block;
+		margin-bottom: 40px;
+		@media screen and (min-width: $tabwidth) {
+			height: 100px;
+			@include flexbox();
+			@include flexbox-justify(center);
+			@include flexbox-align-items(center);
+		}
+		img {
+			width: 80px;
+			height: auto;
+		}
+	}
+	.description {
+		display: block;
+		font-size: 13px;
+		line-height: 1.6;
+		p {
+			margin-top: 0;
+		}
+	}
+	.item:hover {
+		.title {
+			background: $color-lime-green;
+			color: #FFF;
+		}
+	}
+}
+
+

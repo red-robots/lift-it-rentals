@@ -51,3 +51,9 @@ add_filter("gform_init_scripts_footer", "init_scripts");
 function init_scripts() {
     return true;
 }
+
+function custom_excerpt_length( $length ) {
+    return 100;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+

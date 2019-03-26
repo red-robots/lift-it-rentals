@@ -88,4 +88,11 @@ jQuery(document).ready(function ($) {
 		$("body").toggleClass('mobile-menu-open');
 	});
 
+	$(document).on("click","#more-posts",function(e){
+		e.preventDefault();
+		var divheight = $("#news_entries").outerHeight();
+		var newHeight = (parseInt(divheight) * 2) + 10;
+		//$("#news_entries").css('height',newHeight+'px');
+	});
+
 });// END #####################################    END

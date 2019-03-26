@@ -5,7 +5,7 @@
 	margin-top: 90px;
 }
 .site-main {
-	min-height: 30em;
+	min-height: 20em;
 }
 .banner {
 	position: relative;
@@ -61,6 +61,28 @@
 		}
 	}
 }
+.subpage-banner {
+	width: 100%;
+	height: 220px;
+	position: relative;
+	margin-top: 53px;
+	@media screen and (min-width: $tabwidth) {
+		margin-top: 1.1%;
+		height: 300px;
+	}
+	@media screen and (min-width: $midwidth) {
+		height: 400px;
+	}
+	.banner-image {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: #ccc;
+	}
+}
+
 .section-wwd {
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -70,7 +92,7 @@
 	}
 	.section-title {
 		text-transform: uppercase;
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 25px;
 		line-height: 1.2;
 		margin: 0 0 35px;
@@ -81,8 +103,15 @@
 		}
 	}
 	.section-content {
+		font-size: 16px;
+		p {
+			margin-top: 0;
+		}
 		b {
 			font-size: 20px;
+			line-height: 1.3;
+			padding-bottom: 8px;
+			display: inline-block;
 		}
 	}
 }
@@ -171,4 +200,165 @@
 	}
 }
 
+.wrapper-grey {
+	background: $color__text-main;
+	color: #FFF;
+	padding-bottom: 15px;
+}
 
+.newsCol {
+	position: relative;
+	min-height: 420px;
+	&.latestnews {
+		background: #FFF;
+		color: $color__text-main;
+		@media screen and (min-width: $tabwidth) {
+			width: 48%;
+			float: left;
+		}
+		.inside {
+			padding: 20px 20px 0;
+			position: relative;
+			top: -50px;
+			background: #FFF;
+			@media screen and (min-width: $midwidth) {
+				padding: 30px 30px 0;
+			}
+		}
+	}
+	&.newslist {
+		margin-top: 30px;
+		@media screen and (min-width: $tabwidth) {
+			width: 48%;
+			float: right;
+		}
+	}
+	.col-title {
+		margin: 0 0;
+		font-weight: 500;
+		font-size: 25px;
+		line-height: 1.3;
+		text-transform: uppercase;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		border-bottom: 1px solid $color-lime-green;
+	}
+	.post-title {
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+	.button {
+		a {
+		color: $color-lime-green;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	&.newslist .col-title {
+		color: #FFF;
+		font-weight: 400;
+		font-size: 25px;
+		text-transform: none;
+	}
+}
+
+.newslist {
+	position: relative;
+	.entries {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		height: 270px;
+	}
+	.post-title {
+		margin: 0 0;
+		font-weight: 400;
+		font-size: 14px;
+    	line-height: 1.5;
+	}
+	a {
+		color: #FFF;
+		text-decoration: none;
+		&:hover {
+			color: $color-lime-green;
+		}
+	}
+	.entry {
+		position: relative;
+		margin-bottom: 20px;
+		padding-left: 90px;
+		padding-right: 15px;
+	}
+
+	.post-date {
+		color: #939598;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+.scrolldowndiv {
+	position: relative;
+	bottom: 35px;
+	left: 0;
+	width: 100%;
+	height: 65px;
+	z-index: 5;
+	background: -moz-linear-gradient(top, rgba(55,55,57,0) 13%, rgba(55,55,57,0.21) 41%, rgba(55,55,57,0.65) 100%);
+	background: -webkit-linear-gradient(top, rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);
+	background: linear-gradient(to bottom, rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373739', endColorstr='#a6373739',GradientType=0 );
+
+	a {
+		display: block;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		outline: none;
+		i {
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			position: relative;
+			left: -5px;
+			&:before,&:after {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 1px;
+				position: absolute;
+				top: 0;
+				background: #FFF;
+			}
+			&:before {
+				transform: translateY(0) rotate(45deg);
+			}
+			&:after {
+				transform: translateY(0) rotate(-45deg);
+				left: 10px;
+			}
+		}
+	}
+}
+
+.scrollbar {
+	overflow-y: scroll;	
+}
+.scrollbar::-webkit-scrollbar-track {
+	background-color: #58595b;
+}
+
+.scrollbar::-webkit-scrollbar {
+	width: 5px;
+	background-color: #58595b;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+	background-color: #797a7a;
+	border: 1px solid #797a7a;
+}

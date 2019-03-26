@@ -13,6 +13,7 @@ get_header(); ?>
 				<div class="inside clear">
 					<h2 class="col-title">News</h2>
 					<?php 
+					$current_page_id = 0;
 					$a_args = array(
 						'posts_per_page'   => 1,
 						'orderby'          => 'date',
@@ -23,7 +24,8 @@ get_header(); ?>
 					$latest = new WP_Query($a_args);
 					if ( $latest->have_posts() ) { ?>
 					<article id="post_<?php the_ID();?>" class="article">
-						<?php while ( $latest->have_posts() ) : $latest->the_post(); 
+						<?php while ( $latest->have_posts() ) : $latest->the_post();
+							$current_page_id = get_the_ID(); 
 							$content = strip_tags( get_the_content() ); ?>
 							<h2 class="post-title"><?php the_title(); ?></h2>
 							<div class="post-entry">
@@ -56,6 +58,10 @@ get_header(); ?>
 						'post_type'        => 'post',
 						'post_status'      => 'publish'
 					);
+					// if($posts) {
+					// 	$b_args['post__not_in'] = array($current_page_id);
+					// }
+					
 					$news = new WP_Query($b_args);
 					if ( $news->have_posts() ) { ?>
 						<div id="news_entries" class="entries clear scrollbar<?php echo ($count>=$num_items) ? ' has-scrollbar':''; ?>">

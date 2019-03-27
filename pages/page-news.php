@@ -42,7 +42,7 @@ get_header(); ?>
 				<div class="inside clear">
 					<h2 class="col-title">Past Articles</h2>
 					<?php 
-					$num_items = 10;
+					$num_items = 8;
 					$aa = array(
 						'posts_per_page'   => -1,
 						'post_type'        => 'post',
@@ -61,26 +61,28 @@ get_header(); ?>
 					// if($posts) {
 					// 	$b_args['post__not_in'] = array($current_page_id);
 					// }
-					
+
 					$news = new WP_Query($b_args);
 					if ( $news->have_posts() ) { ?>
 						<div id="news_entries" class="entries clear scrollbar<?php echo ($count>=$num_items) ? ' has-scrollbar':''; ?>">
-							<?php while ( $news->have_posts() ) : $news->the_post();  ?>
-								<div class="entry clear">
+							<?php $i=1; while ( $news->have_posts() ) : $news->the_post();  ?>
+								<div class="entry clear<?php echo ($i==1) ? ' first':'';?>">
 									<div class="post-date"><?php echo get_the_date('m/d/Y'); ?></div>
 									<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 								</div>
-							<?php endwhile; wp_reset_postdata(); ?>
+							<?php $i++; endwhile; wp_reset_postdata(); ?>
 						</div>
 					<?php } ?>
+
+					<?php if ($count>=$num_items) { ?>
+					<div class="scrolldowndiv">
+						<a id="more-posts" data-expand="false" data-perpage="<?php echo $num_items ?>" data-currentpage="1" href="#"><i></i></a>
+					</div>	
+					<?php } ?>
+
 				</div>
 
-				<?php if ($count>=$num_items) { ?>
-				<div class="scrolldowndiv">
-					<a id="more-posts" data-currentpage="1" href="#"><i></i></a>
-				</div>	
-				<?php } ?>
-
+				
 			</div>
 
 		<?php endwhile; ?>

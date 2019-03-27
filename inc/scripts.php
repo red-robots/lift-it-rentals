@@ -32,6 +32,13 @@ function acstarter_scripts() {
 		true 
 	);
 
+	wp_enqueue_script( 
+		'load_more', 
+		get_template_directory_uri() . '/assets/js/custom/loadmore.js', 
+		array('jquery'), '20190201', 
+		true 
+	);
+    wp_localize_script('load_more', 'myAjax', array('ajaxurl' => admin_url('admin-ajax.php')));
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

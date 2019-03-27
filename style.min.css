@@ -1904,13 +1904,16 @@ h1.entry-title{font-size:30px;font-weight:600;line-height:1.3}
 .newsCol .button a:hover{opacity:.5}
 .newsCol.newslist .col-title{color:#FFF;font-weight:400;font-size:25px;text-transform:none}
 .newslist{position:relative}
-.newslist .entries{overflow-x:hidden;overflow-y:scroll;height:290px}
+.newslist .inside{position:relative;margin-bottom:20px}
+.newslist .entries{overflow-x:hidden;overflow-y:scroll;height:312px;position:relative;padding-bottom:30px}
+.newslist .entries:after{content:""}
 .newslist .post-title{margin:0;font-weight:400;font-size:14px;line-height:1.5}
 .newslist a{color:#FFF;text-decoration:none}
 .newslist a:hover{color:#aacf37}
-.newslist .entry{position:relative;margin-bottom:20px;padding-left:90px;padding-right:15px}
+.newslist .entry{position:relative;margin-top:20px;padding-left:90px;padding-right:15px}
+.newslist .entry.first{margin-top:0}
 .newslist .post-date{color:#939598;position:absolute;top:0;left:0}
-.scrolldowndiv{position:absolute;bottom:29px;left:0;width:100%;height:65px;z-index:5;background:-webkit-linear-gradient(top,rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);background:linear-gradient(to bottom,rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00373739',endColorstr='#a6373739',GradientType=0)}
+.scrolldowndiv{position:absolute;bottom:0;left:0;width:100%;height:65px;z-index:5;background:-webkit-linear-gradient(top,rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);background:linear-gradient(to bottom,rgba(55,55,57,0) 13%,rgba(55,55,57,0.21) 41%,rgba(55,55,57,0.65) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00373739',endColorstr='#a6373739',GradientType=0)}
 .scrolldowndiv a{display:block;width:100%;text-align:center;position:absolute;bottom:1px;left:0;outline:0}
 .scrolldowndiv a i{display:inline-block;width:12px;height:12px;position:relative;left:-5px;top:5px}
 .scrolldowndiv a i:before,.scrolldowndiv a i:after{content:"";display:block;width:100%;height:1px;position:absolute;top:0;background:#FFF}

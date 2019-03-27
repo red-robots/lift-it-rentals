@@ -57,3 +57,66 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+/* News Page */
+add_action("wp_ajax_load_more_news", "load_more_news");
+add_action("wp_ajax_nopriv_load_more_news", "load_more_news");
+function load_more_news() {
+    $num = ($_POST["page"]) ? $_POST["page"] : 1;
+    $paged = $num + 1;
+    $perpage = ($_POST["perpage"]) ? $_POST["perpage"] : 10;
+
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $content = get_news_items($paged,$perpage);
+        $args = array(
+            'posts_per_page'   => $perpage,
+            'orderby'          => 'date',
+            'order'            => 'DESC',
+            'post_type'        => 'post',
+            'post_status'      => 'publish',
+            'paged'            => $paged
+        );
+        $posts = new WP_Query($args);
+        $total_pages = ($posts) ? $posts->max_num_pages : 0;
+        $result['content'] = $content;
+        $result['total_pages'] = $total_pages;
+        $result['pagenext'] = $paged;
+
+        $result = json_encode($result);
+        echo $result;
+   }
+   else {
+      header("Location: ".$_SERVER["HTTP_REFERER"]);
+   }
+   die();
+}
+
+
+function get_news_items($paged=1,$perpage=10) {
+    $html_content = '';
+    $args = array(
+        'posts_per_page'   => $perpage,
+        'orderby'          => 'date',
+        'order'            => 'DESC',
+        'post_type'        => 'post',
+        'post_status'      => 'publish',
+        'paged'            => $paged
+    );
+    $posts = new WP_Query($args);
+    if ( $posts->have_posts() ) { 
+        ob_start(); ?>
+    <div data-group="page__<?php echo $paged;?>" class="batch page__<?php echo $paged;?>">
+        <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+            <div class="entry clear">
+                <div class="post-date"><?php echo get_the_date('m/d/Y'); ?></div>
+                <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            </div>
+        <?php endwhile; wp_reset_postdata(); ?>
+    </div>
+    <?php  }
+    $html_content = ob_get_contents();
+    ob_end_clean();
+    return $html_content;
+}
+
+
+

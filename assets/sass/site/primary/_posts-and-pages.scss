@@ -273,10 +273,20 @@ h1.entry-title {
 
 .newslist {
 	position: relative;
+	.inside {
+		position: relative;
+		margin-bottom: 20px;
+	}
 	.entries {
 		overflow-x: hidden;
 		overflow-y: scroll;
-		height: 290px;
+		height: 312px;
+		position: relative;
+		padding-bottom: 30px;
+		&:after {
+			content:"";
+
+		}
 	}
 	.post-title {
 		margin: 0 0;
@@ -293,11 +303,13 @@ h1.entry-title {
 	}
 	.entry {
 		position: relative;
-		margin-bottom: 20px;
+		margin-top: 20px;
 		padding-left: 90px;
 		padding-right: 15px;
+		&.first {
+			margin-top: 0;
+		}
 	}
-
 	.post-date {
 		color: #939598;
 		position: absolute;
@@ -307,7 +319,7 @@ h1.entry-title {
 }
 .scrolldowndiv {
 	position: absolute;
-	bottom: 29px;
+	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 65px;

@@ -57,6 +57,29 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+function trim_excerpt($text) {
+    $text = str_replace('[&hellip;]', '', $text);
+    $text = rtrim($text,' ');
+    return $text.'...';
+}
+add_filter('get_the_excerpt', 'trim_excerpt');
+
+
+function custom_excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt) >= $limit) {
+      array_pop($excerpt);
+      $excerpt = implode(" ", $excerpt) . '...';
+  } else {
+      $excerpt = implode(" ", $excerpt);
+  }
+  $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
+  return $excerpt;
+}
+
+
+
+
 /* News Page */
 add_action("wp_ajax_load_more_news", "load_more_news");
 add_action("wp_ajax_nopriv_load_more_news", "load_more_news");

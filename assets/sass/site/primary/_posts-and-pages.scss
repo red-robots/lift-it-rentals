@@ -8,20 +8,28 @@
 	min-height: 20em;
 }
 h1.entry-title {
-	font-size: 30px;
-    font-weight: 600;
-    line-height: 1.3;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.2;
+    margin: 0 0 35px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid $color-lime-green;
 }
 .banner {
 	position: relative;
 	width: 100%;
 	margin-top: 35px;
 	@media screen and (min-width: $tabwidth) {
-		margin-top: 25px;
+		margin-top: 3%;
 	}
 
 	@media screen and (min-width: $midwidth) {
-		margin-top: 14px;
+		margin-top: 2%;
+	}
+
+	@media screen and (min-width: $deskwidth) {
+		margin-top: 0.7%;
 	}
 
 	img {
@@ -70,21 +78,84 @@ h1.entry-title {
 	width: 100%;
 	height: 220px;
 	position: relative;
-	margin-top: 53px;
+	margin-top: 22px;
 	@media screen and (min-width: $tabwidth) {
-		margin-top: 1.1%;
+		margin-top: 0;
 		height: 300px;
 	}
 	@media screen and (min-width: $midwidth) {
+		margin-top: 0.6%;
 		height: 400px;
 	}
 	.banner-image {
+		display: block;
 		width: 100%;
 		height: 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-color: #ccc;
+		background-color: #FFF;
+	}
+	img {
+		display: none;
+		width: 100%;
+		height: auto;
+	}
+	&.autoheight {
+		height: auto;
+		margin-top: 55px;
+		@media screen and (min-width: $tabwidth) {
+			margin-top: 0;
+		}
+		img {
+			display: block;
+		}
+		.banner-image {
+			display: none;
+		}
+	}
+	.caption {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		width: 100%;
+		height: 100%;
+		@include flexbox();
+		@include flexbox-align-items(center);
+		@include flexbox-justify(center);
+		text-align: center;
+		.inside {
+			display: inline-block;
+			max-width: 800px;
+			width: 80%;
+			box-sizing: border-box;
+			padding: 10px;
+			background: rgba(0,0,0,.8);
+			color: #FFF;
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 1.5;
+			border-bottom: 3px solid $color-lime-green;
+			@media screen and (min-width: $tabwidth) {
+				font-size: 20px;
+			}
+			@media screen and (min-width: $midwidth) {
+				font-size: 25px;
+				padding: 20px;
+			}
+		}
+	}
+}
+
+.page-template-page-team .subpage-banner {
+	margin-top: 45px;
+	@media screen and (min-width: $tabwidth) {
+		margin-top: -1.2%;
+		height: 300px;
+	}
+	@media screen and (min-width: $midwidth) {
+		height: 400px;
 	}
 }
 
@@ -209,6 +280,17 @@ h1.entry-title {
 	background: $color__text-main;
 	color: #FFF;
 	padding-bottom: 15px;
+	position: relative;
+	&:before {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 5%;
+		background: $color__text-main;
+		position: absolute;
+		top: -6px;
+		left: 0;
+	}
 }
 
 .newsCol {
@@ -379,4 +461,174 @@ h1.entry-title {
 .scrollbar::-webkit-scrollbar-thumb {
 	background-color: #797a7a;
 	border: 1px solid #797a7a;
+}
+
+.content-inner {
+	padding-top: 35px;
+}
+.team-type {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	.row {
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+	  		@include flexbox-align-content(flex-start);
+	  		margin-left: -15px;
+			margin-right: -15px;
+	  	}
+	}
+	.team {
+		box-sizing: border-box;
+		position: relative;
+		margin-bottom: 80px;
+		@media screen and (min-width: $tabwidth) {
+			margin-bottom: 0;
+		}
+		a {
+			color: $color-lime-green;
+			text-decoration: none;
+		}
+	}
+	.inside {
+		box-sizing: border-box;
+		padding: 20px;
+		background: $color__text-main;
+		color: #FFF;
+		height: 100%;
+	}
+	.photo {
+		width: 100%;
+		position: relative;
+		text-align: center;
+		top: 0;
+		left: 0;
+		margin-top: -40px;
+		margin-bottom: 15px;
+	}
+	.description {
+		font-size: 13px;
+	}
+	.name {
+		margin: 0 0 8px;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 1.3;
+		color: $color-lime-green;
+	}
+	.frame {
+		display: inline-block;
+		width: 130px;
+		@media screen and (min-width: $tabwidth) {
+			width: 100px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			border-bottom: 2px solid $color-lime-green;
+		}
+	}
+	&.leadership {
+		padding-bottom: 0;
+		@media screen and (min-width: $tabwidth) {
+			padding-bottom: 10px;
+		}
+		.team {
+			@media screen and (min-width: $tabwidth) {
+				width: 49.8%;
+				float: left;
+				position: relative;
+				box-sizing: border-box;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		}
+		.photo {
+			margin-top: -70px;
+		}
+		.frame {
+			width: 165px;
+			@media screen and (min-width: $tabwidth) {
+				width: 155px;
+			}
+		}
+		.inside {
+			@media screen and (min-width: $deskwidth) {
+				padding: 30px;
+			}
+		}
+	}
+
+	&.advisors {
+		.team {
+			margin-bottom: 40px;
+			@media screen and (min-width: $tabwidth) {
+				width: 49.5%;
+				float: left;
+				padding-left: 15px;
+				padding-right: 15px;
+				margin-bottom: 25px;
+    			margin-top: 25px;
+			}
+			@media screen and (min-width: $midwidth) {
+				width: 33.25%;
+			}
+		}
+		.name {
+			font-size: 16px;
+		}
+	}
+
+	.button {
+		margin-top: 10px;
+		a {
+			font-size: 11px;
+			text-decoration: underline;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+		
+	}
+	
+}
+.section-leadership {
+	padding-bottom: 0;
+	@media screen and (min-width: $tabwidth) {
+		padding-bottom: 50px;
+	}
+}
+.section-advisors {
+	padding-top: 50px;
+	padding-bottom: 25px;
+	background: #f1f2f2;
+	.team-type {
+		padding-top: 50px;
+		@media screen and (min-width: $tabwidth) {
+			padding-top: 30px;
+		}
+	}
+	.section-title {
+		text-transform: uppercase;
+		font-weight: 500;
+		font-size: 25px;
+		line-height: 1.2;
+		margin: 0 0 15px;
+		padding-bottom: 35px;
+		border-bottom: 2px solid $color-lime-green;
+	}
+}
+
+.teampage {
+	padding-top: 20px;
+	.med-wrapper  {
+		max-width: 860px;
+		padding-left: 20px;
+		padding-right: 20px;
+		@media screen and (min-width: $midwidth) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 }

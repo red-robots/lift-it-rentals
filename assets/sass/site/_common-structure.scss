@@ -108,6 +108,10 @@ body {
 	width: 100%;
 	position: relative;
 	z-index: 50;
+	@media screen and (min-width: $tabwidth) {
+		@include flexbox();
+		@include flexbox-align-items(center);
+	}
 	.wrapper {
 		max-width: 100%;
 		padding-left: 0;
@@ -118,13 +122,23 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
+	@media screen and (min-width: $tabwidth) {
+		height: 3.95%;
+	}
+}
+.subpage .site-header {
+	@media screen and (min-width: $tabwidth) {
+		height: 60px;
+	}
 }
 .site-footer {
 	.wrapper {
-		border-top: 2px solid $color-lime-green;
+		font-size: 13px;
+	}
+	.foot-inside {
 		padding-top: 40px;
 		padding-bottom: 40px;
-		font-size: 13px;
+		border-top: 2px solid $color-lime-green;
 	}
 	a {
 		@include transition(all ease-out .3s);

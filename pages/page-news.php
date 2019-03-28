@@ -29,7 +29,10 @@ get_header(); ?>
 							$content = strip_tags( get_the_content() ); ?>
 							<h2 class="post-title"><?php the_title(); ?></h2>
 							<div class="post-entry">
-								<?php the_excerpt(); ?>
+								<?php
+									//echo custom_excerpt(100); 
+									the_excerpt(); 
+								?>
 								<div class="button"><a href="<?php the_permalink() ?>">Read More</a></div>		
 							</div>
 						<?php endwhile; wp_reset_postdata(); ?>

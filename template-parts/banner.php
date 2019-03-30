@@ -2,6 +2,8 @@
 /* HOME BANNER */
 $banner = get_field('banner_image');
 $banner_caption = get_field('banner_caption');
+$alignment_option = get_field('caption_alignment');
+$alignment = ($alignment_option) ? $alignment_option : 'center';
 $is_autoheight = ($banner_caption) ? '' : ' autoheight';
 
 if( is_front_page() || is_home() ) {
@@ -23,7 +25,7 @@ if( is_front_page() || is_home() ) {
 		<img src="<?php echo $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" />
 		<div class="banner-image" style="background-image:url('<?php echo $banner['url']; ?>');"></div>
 		<?php if ($banner_caption) { ?>
-		<div class="caption"><div class="inside"><?php echo $banner_caption ?></div></div>		
+		<div class="caption <?php echo $alignment; ?>"><div class="inside"><?php echo $banner_caption ?></div></div>		
 		<?php } ?>
 	</div>
 	<?php } ?>

@@ -8,16 +8,39 @@
 jQuery(document).ready(function ($) {
 	
 	/*
-        FAQ dropdowns
-	__________________________________________
-	*/
-	$('.question').click(function() {
-	 
-	    $(this).next('.answer').slideToggle(500);
-	    $(this).toggleClass('close');
-	    $(this).find('.plus-minus-toggle').toggleClass('collapsed');
-	    $(this).parent().toggleClass('active');
-	 
+	*
+	*	Smooth Scroll to Anchor
+	*
+	------------------------------------*/
+	$('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
+	    if (
+	      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+	      && 
+	      location.hostname == this.hostname
+	    ) {
+	      // Figure out element to scroll to
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	      // Does a scroll target exist?
+	      if (target.length) {
+	        // Only prevent default if animation is actually gonna happen
+	        event.preventDefault();
+	        $('html, body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000, function() {
+	          // Callback after animation
+	          // Must change focus!
+	          var $target = $(target);
+	          $target.focus();
+	          if ($target.is(":focus")) { // Checking if the target was focused
+	            return false;
+	          } else {
+	            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+	            $target.focus(); // Set focus again
+	          };
+	        });
+	      }
+	    }
 	});
 
 	/*
@@ -86,6 +109,15 @@ jQuery(document).ready(function ($) {
 	$(document).on("click",".menu-toggle",function(e){
 		e.preventDefault();
 		$("body").toggleClass('mobile-menu-open');
+	});
+
+	$('.menu a[href*="#"]').not('[href="#"]').not('[href="#0"]').each(function(){
+		
+		var target = $(this.hash);
+		var hash_name = target.selector;
+		var pageURL = siteURL + '/about/our-team/' + hash_name;
+		$(this).attr('href',pageURL);
+		
 	});
 
 

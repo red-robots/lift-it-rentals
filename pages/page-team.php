@@ -58,7 +58,7 @@ $taxonomy = 'team_type';
 			</section>
 
 			<?php /* Board of Advisors */ ?>
-			<section class="content-inner section-advisors full-width clear">
+			<section id="board-advisors" class="content-inner section-advisors full-width clear">
 				<div class="med-wrapper clear">
 					<h2 class="section-title">Our Board of Advisors</h2>
 					<?php 

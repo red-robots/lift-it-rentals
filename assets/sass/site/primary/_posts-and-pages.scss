@@ -7,6 +7,22 @@
 .site-main {
 	min-height: 20em;
 }
+.flex-row {
+	position: relative;
+	@media screen and (min-width: $tabwidth) {
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-direction(row);
+  		@include flexbox-align-content(flex-start);
+  		margin-left: -15px;
+		margin-right: -15px;
+  	}
+  	.flex-col {
+  		box-sizing: border-box;
+		padding: 20px;
+  	}
+}
+.sub-title,
 h1.entry-title {
     text-transform: uppercase;
     font-weight: 500;
@@ -93,7 +109,8 @@ h1.entry-title {
 		height: 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: top center;
+		background-attachment: scroll;
 		background-color: #FFF;
 	}
 	img {
@@ -121,10 +138,12 @@ h1.entry-title {
 		z-index: 10;
 		width: 100%;
 		height: 100%;
+		box-sizing: border-box;
+		padding-left: 4%;
+		padding-right: 4%;
 		@include flexbox();
 		@include flexbox-align-items(center);
-		@include flexbox-justify(center);
-		text-align: center;
+
 		.inside {
 			display: inline-block;
 			max-width: 800px;
@@ -145,6 +164,36 @@ h1.entry-title {
 				padding: 20px;
 			}
 		}
+
+		&.center {
+			@include flexbox-justify(center);
+			text-align: center;
+		}
+		&.left {
+			@include flexbox-justify(flex-start);
+			text-align: left;
+			.inside {
+				max-width: 600px;
+			}
+		}
+		&.right {
+			@include flexbox-justify(flex-end);
+			text-align: right;
+			.inside {
+				max-width: 600px;
+			}
+		}
+		
+	}
+}
+
+.page-template-page-team .subpage-banner,
+.page-template-page-about .subpage-banner {
+	@media screen and (min-width: $tabwidth) {
+		height: 300px;
+	}
+	@media screen and (min-width: $midwidth) {
+		height: 400px;
 	}
 }
 
@@ -152,10 +201,25 @@ h1.entry-title {
 	margin-top: 45px;
 	@media screen and (min-width: $tabwidth) {
 		margin-top: -1.2%;
-		height: 300px;
 	}
 	@media screen and (min-width: $midwidth) {
-		height: 400px;
+		margin-top: -1.3%;
+	}
+	@media screen and (min-width: $deskwidth) {
+		margin-top: -1%;
+	}
+}
+
+.page-template-page-about .subpage-banner {
+	margin-top: 30px;
+	@media screen and (min-width: $tabwidth) {
+		margin-top: -3.2%;
+	}
+	@media screen and (min-width: $midwidth) {
+		margin-top: -2.6%;
+	}
+	.caption {
+		margin-top: 1.2%;
 	}
 }
 
@@ -299,6 +363,7 @@ h1.entry-title {
 	&.latestnews {
 		background: #FFF;
 		color: $color__text-main;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.22);
 		@media screen and (min-width: $tabwidth) {
 			width: 48%;
 			float: left;
@@ -308,9 +373,24 @@ h1.entry-title {
 			position: relative;
 			top: -50px;
 			background: #FFF;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.22);
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 30px;
+				background: #FFF;
+				position: absolute;
+				left: 0;
+				bottom: -20px;
+			}
 			@media screen and (min-width: $midwidth) {
 				padding: 30px 30px 0;
 			}
+		}
+		.article {
+			position: relative;
+			z-index: 5;
 		}
 	}
 	&.newslist {
@@ -629,6 +709,510 @@ h1.entry-title {
 		@media screen and (min-width: $midwidth) {
 			padding-left: 0;
 			padding-right: 0;
+		}
+	}
+}
+
+.white-box {
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.22);
+	.inside {
+		padding: 20px;
+		@media screen and (min-width: $deskwidth) {
+			padding: 30px;
+		}
+	}	
+	.col-title {
+		margin: 0 0;
+		font-weight: 500;
+		font-size: 25px;
+		line-height: 1.3;
+		text-transform: uppercase;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		border-bottom: 1px solid $color-lime-green;
+	}
+	h3 {
+		font-size: 20px;
+		line-height: 1.3;
+	}
+	ul, ol {
+		margin-left: 15px;
+    	padding-left: 25px;
+	}
+}
+
+.about-content {
+	background: $color-subtle-grey;
+	position: relative;
+	padding-bottom: 60px;
+	.outer-wrapper {
+		position: relative;
+	}
+	.grey-wrapper {
+		position: relative;
+		background: $color__text-main;
+		color: #FFF;
+		padding-bottom: 40px;
+		@media screen and (min-width: $tabwidth) {
+			padding-bottom: 0;
+		}
+	}
+	.bottomdiv {
+		@media screen and (min-width: $tabwidth) {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			z-index: 15;
+			height: 80px;
+			.wrapper {
+				height: 100%;
+			}
+			.right-overlay {
+				width: 45%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: $color-subtle-grey;
+			}
+		}
+	}
+	.content-inner {
+		position: relative;
+		z-index: 10;
+		padding-top: 40px;
+	}
+	.column {
+		position: relative;
+		box-sizing: border-box;
+		z-index: 10;
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+			float: left;
+		}
+	}
+	.overlay {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		background: $color-subtle-grey;
+		&.top {
+			height: 85px;
+			top: 0;
+		}
+		&.bottom {
+			height: 20px;
+			bottom: 0;
+		}
+	}
+	.content-left {
+		background: #FFF;
+		color: $color__text-main;
+		z-index: 12;
+		@media screen and (min-width: $tabwidth) {
+			padding-bottom: 30px;
+			margin-bottom: -40px;
+		}
+		.inside {
+			padding: 20px;
+		}
+	}
+	.content-right {
+		margin-top: 45px;
+		padding-top: 0;
+		padding-bottom: 0;
+		@media screen and (min-width: $tabwidth) {
+			margin-top: 0;
+			position: relative;
+			right: 0;
+			top: 0;
+			height: 100%;
+			&:before, &:after {
+				content:"";
+				display: block;
+				background: $color-subtle-grey;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				z-index: 5;
+			}
+			&:before {
+				height: 45px;
+				top: 0;
+			}
+			&:after {
+				height: 10px;
+				bottom: 0;
+				display: none;
+			}
+		}
+	}
+	.contentdiv {
+		position: relative;
+		z-index: 10;
+	}
+	.titlediv {
+		position: relative;
+		width: 100%;
+		@media screen and (min-width: $tabwidth) {
+			position: absolute;
+			top: 24px;
+		}
+		span {
+			display: block;
+			width: 100%;
+    		text-align: center;
+			padding: 4px 0 3px;
+			background: $color-lime-green;
+			color: #FFF;
+			text-transform: uppercase;
+			font-size: 17px;
+			font-weight: 500;
+			@media screen and (min-width: $tabwidth) {
+				width: 210px;
+			}
+		}
+	}
+	.borders {
+		@media screen and (min-width: $tabwidth) {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			span {
+				display: block;
+				float: left;
+				width: 33%;
+				height: 100%;
+				border-left: 1px solid #8a8b8d;
+				&.first {
+					border-left: none;
+				}
+			}
+		}
+	}
+}
+.model-lists {
+	.flex-row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.flex-col {
+		padding: 0 0;
+		margin-top: 20px;
+		border-top: 1px solid #8a8b8d;
+		@media screen and (min-width: $tabwidth) {
+			width: 33%;
+			float: left;
+			margin-top: 40px;
+			border-top: none;
+		}
+		&.first {
+			border-top: 0;
+		}
+	}
+	.inside {
+		box-sizing: border-box;
+		padding: 20px;
+		@media screen and (min-width: $midwidth) {
+			padding: 30px 30px 40px;
+			height: 100%;
+		}
+	}
+	.icon {
+		text-align: center;
+		margin-bottom: 7px;
+		img {
+			width: 100px;
+			height: auto;
+		}
+	}
+	.title {
+		margin: 0 0 10px;
+		font-weight: 500;
+		font-size: 18px;
+		color: $color-lime-green;
+		line-height: 1.3;
+		@media screen and (min-width: $midwidth) {
+			font-size: 20px;
+		}
+	}
+	.description {
+		font-size: 13px;
+	}
+}
+.section-partners {
+	padding-bottom: 20px;
+	.inner {
+		position: relative;
+		z-index: 20;
+		padding-left: 20px;
+		padding-right: 20px;
+		top: -55px;
+		@media screen and (min-width: $tabwidth) {
+			top: -25px;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.column {
+		margin-bottom: 30px;
+		position: relative;
+		@media screen and (min-width: $tabwidth) {
+			margin-bottom: 0;
+		}
+		&.left {
+			@media screen and (min-width: $tabwidth) {
+				width: 38%;
+				float: left;
+			}
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		&.right {
+			margin-top: 30px;
+			@media screen and (min-width: $tabwidth) {
+				width: 60%;
+				float: right;
+				margin-top: 7%;
+			}
+		}
+	}
+	.textwrap {
+		@media screen and (min-width: $tabwidth) {
+			width: 95%;
+			float: left;
+		}
+		@media screen and (min-width: $midwidth) {
+			width: 70%;
+			float: left;
+		}
+	}
+	
+}
+.textwrap {
+	h3 {
+		font-size: 20px;
+		line-height: 1.3;
+	}
+}
+
+.section-performance {
+	position: relative;
+	.inner {
+		width: 100%;
+		background-size: cover;
+		background-position: bottom center;
+		background-color: #26688c;
+		color: #FFF;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		position: relative;
+		@media screen and (min-width: $tabwidth) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+		@media screen and (min-width: $deskwidth) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+	}
+	.wrapper {
+		position: relative;
+		z-index: 5;
+	}
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 80%;
+		height: 100%;
+		background: -moz-linear-gradient(left, rgba(0,0,0,0.65) 20%, rgba(0,0,0,0.33) 60%, rgba(0,0,0,0) 100%);
+		background: -webkit-linear-gradient(left, rgba(0,0,0,0.65) 20%,rgba(0,0,0,0.33) 60%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(to right, rgba(0,0,0,0.65) 20%,rgba(0,0,0,0.33) 60%,rgba(0,0,0,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
+	}
+	.sub-title {
+		color: #FFF;
+	}
+	.column {
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+			float: left;
+		}
+		&.right {
+			@media screen and (min-width: $tabwidth) {
+				padding-left: 50px;
+			}
+			.inside {
+				width: 70%;
+				margin: 0 auto;
+				padding: 20px 20px 10px;
+				background: rgba(0,0,0,.5);
+				color: #FFF;
+				@media screen and (min-width: $tabwidth) {
+					width: 90%;
+					float: left;
+					margin: 63px 0 0;
+				}
+				@media screen and (min-width: $midwidth) {
+					width: 70%;
+				}
+				@media screen and (min-width: $deskwidth) {
+					width: 50%;
+				}
+			}
+			.desc {
+				color: $color-lime-green;
+				font-weight: 600;
+			}
+		}
+		.lists {
+			margin-top: 25px;
+			text-align: center;
+		}
+		.items-wrap {
+			display: inline-block;
+		}
+		.lists .item {
+			position: relative;
+			padding-left: 35px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+		.lists .icon {
+			position: absolute;
+			top: -10px;
+			left: 0;
+			width: 30px;
+			height: auto;
+		}
+		.lists .name {
+			color: #FFF;
+			text-transform: uppercase;
+			font-size: 13px;
+			line-height: 1.2;
+		}
+	}
+}
+
+.section-quote {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: $color-subtle-grey;
+	@media screen and (min-width: $tabwidth) {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+	.column.image {
+		margin-bottom: 30px;
+		@media screen and (min-width: $tabwidth) {
+			width: 35%;
+			float: left;
+			margin-bottom: 0;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			border-bottom: 3px solid $color-lime-green;
+		}
+	}
+	.column.text {
+		position: relative;
+		top: -5px;
+		@media screen and (min-width: $tabwidth) {
+			&.half {
+				width: 62%;
+				float: right;
+			}
+		}
+		p {
+			margin-top: 0;
+			b, strong {
+				font-size: 25px;
+				line-height: 1.2;
+			}
+			a {
+				font-weight: 500;
+			}
+		}
+		.inside {
+			font-style: italic;
+			@media screen and (min-width: $tabwidth) {
+				width: 90%;
+				float: left;
+			}
+			@media screen and (min-width: $midwidth) {
+				width: 70%;
+			}
+			@media screen and (min-width: $deskwidth) {
+				width: 70%;
+			}
+		}
+	}
+	.button {
+		width: 100%;
+		float: left;
+		border-bottom: 1px solid $color-lime-green;
+		position: relative;
+		text-align: right;
+		margin-top: 15px;
+		@media screen and (min-width: $tabwidth) {
+			width: 90%;
+		}
+		@media screen and (min-width: $midwidth) {
+			width: 70%;
+		}
+		@media screen and (min-width: $deskwidth) {
+			width: 70%;
+		}
+	}
+	.cta-btn {
+		display: inline-block;
+		text-decoration: none;
+		background: $color-lime-green;
+		color: #FFF;
+		text-transform: uppercase;
+		font-size: 18px;
+		font-weight: 500;
+		text-align: center;
+		padding: 5px 35px 5px 18px;
+		position: relative;
+		@include transition(all ease-out .3s);
+
+		background: rgb(170,207,55);
+		background: -moz-linear-gradient(top, rgba(170,207,55,1) 0%, rgba(140,190,0,1) 100%);
+		background: -webkit-linear-gradient(top, rgba(170,207,55,1) 0%,rgba(140,190,0,1) 100%);
+		background: linear-gradient(to bottom, rgba(170,207,55,1) 0%,rgba(140,190,0,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aacf37', endColorstr='#8cbe00',GradientType=0 );
+
+		@media screen and (min-width: $tabwidth) {
+			right: -40px;
+			bottom: -1px;
+		}
+		
+		.icon {
+			display: inline-block;
+			position: absolute;
+			right: 12px;
+			margin-right: 0;
+			@include transition(all ease-out .3s);
+		}
+		&:hover {
+
+			background: rgb(140,190,0);
+			background: -moz-linear-gradient(top, rgba(140,190,0,1) 0%, rgba(170,207,55,1) 100%);
+			background: -webkit-linear-gradient(top, rgba(140,190,0,1) 0%,rgba(170,207,55,1) 100%);
+			background: linear-gradient(to bottom, rgba(140,190,0,1) 0%,rgba(170,207,55,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cbe00', endColorstr='#aacf37',GradientType=0 );
+
+			.icon {
+				margin-right: -3px;
+			}
 		}
 	}
 }

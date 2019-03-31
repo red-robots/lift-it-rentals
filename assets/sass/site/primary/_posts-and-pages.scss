@@ -578,6 +578,9 @@ h1.entry-title {
 		color: #FFF;
 		height: 100%;
 	}
+	.click-photo {
+		cursor: pointer;
+	}
 	.photo {
 		width: 100%;
 		position: relative;
@@ -1214,5 +1217,132 @@ h1.entry-title {
 				margin-right: -3px;
 			}
 		}
+	}
+}
+
+.staff-info {
+	.header {
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+		border-bottom: 2px solid $color-lime-green;
+	}
+	.types {
+		font-size: 15px;
+		font-weight: 500;
+	}
+	.entry-title {
+		padding-bottom: 0;
+		margin-bottom: 0;
+		border-bottom: none;
+		line-height: 1.2;
+	}
+	.textwrap{
+		margin-bottom: 30px;
+		@media screen and (min-width: $tabwidth) {
+			margin-bottom: 0;
+			&.half {
+				width: 65%;
+				float: left;
+			}
+		}
+		p {
+			margin-top: 0;
+		}
+		a {
+			font-weight: 500;
+		}
+	}
+	.imagediv {
+		@media screen and (min-width: $tabwidth) {
+			width: 28%;
+			float: right;
+			margin-top: 8px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+body.open-modal {
+	overflow: hidden;
+}
+.popup-wrapper {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	padding: 20px;
+	box-sizing: border-box;
+	display: none;
+	@media screen and (min-width: $midwidth) {
+		padding-top: 40px;
+	}
+	.overlaybg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,.8);
+	}
+	.closediv {
+		display: block;
+		width: 100%;
+		position: absolute;
+		z-index: 100;
+		@media screen and (min-width: $tabwidth) {
+			display: none;
+		}
+		.wrap {
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+			position: relative;
+			padding: 0 20px;
+		}
+	}
+	#close-modal {
+		display: block;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		background: #000;
+		border-radius: 100px;
+		border: 1px solid #FFF;
+		position: absolute;
+		top: -12px;
+    	right: 24px;
+		text-align: center;
+		text-decoration: none;
+		@media screen and (min-width: $midwidth) {
+			top: -12px;
+    		right: 5px;
+		}
+		span {
+			position: relative;
+			color: #FFF;
+			font-size: 18px;
+		    top: -1px;
+		    left: 1px;
+		}
+	}
+	.popup-inner {
+		position: relative;
+		z-index: 20;
+		max-width: 800px;
+		width: 100%;
+		margin: 0 auto;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+	.staff-info {
+		min-height: 500px;
+		padding: 30px;
+		background: #FFF;
 	}
 }

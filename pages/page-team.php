@@ -38,7 +38,7 @@ $taxonomy = 'team_type';
 						<div class="team">
 							<div class="inside clear">
 								<?php if ($photo) { ?>
-								<div class="photo">
+								<div data-pageid="<?php echo get_the_ID(); ?>" class="photo click-photo">
 									<div class="frame"><img src="<?php echo $photo['sizes']['thumbnail'] ?>" alt="<?php echo $photo['title'] ?>" /></div>
 								</div>	
 								<?php } ?>
@@ -46,7 +46,7 @@ $taxonomy = 'team_type';
 									<h3 class="name"><?php the_title(); ?></h3>
 									<?php echo custom_excerpt(50); ?>
 									<div class="button">
-										<a href="<?php echo get_permalink(); ?>">Read More</a>
+										<a class="staff-info-link" data-pageid="<?php echo get_the_ID(); ?>" href="<?php echo get_permalink(); ?>">Read More</a>
 									</div>		
 								</div>
 							</div>
@@ -84,7 +84,7 @@ $taxonomy = 'team_type';
 							<div class="team">
 								<div class="inside clear">
 									<?php if ($photo) { ?>
-									<div class="photo">
+									<div data-pageid="<?php echo get_the_ID(); ?>" class="photo click-photo">
 										<div class="frame"><img src="<?php echo $photo['sizes']['thumbnail'] ?>" alt="<?php echo $photo['title'] ?>" /></div>
 									</div>	
 									<?php } ?>
@@ -92,7 +92,7 @@ $taxonomy = 'team_type';
 										<h3 class="name"><?php the_title(); ?></h3>
 										<?php echo custom_excerpt(30); ?>
 										<div class="button">
-											<a href="<?php echo get_permalink(); ?>">Read More</a>
+											<a class="staff-info-link" data-pageid="<?php echo get_the_ID(); ?>" href="<?php echo get_permalink(); ?>">Read More</a>
 										</div>		
 									</div>
 								</div>

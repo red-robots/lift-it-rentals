@@ -141,5 +141,80 @@ function get_news_items($paged=1,$perpage=10) {
     return $html_content;
 }
 
+/* Ajax - Get Staff Details */
+add_action( 'wp_ajax_nopriv_staff_details', 'staff_details' );
+add_action( 'wp_ajax_staff_details', 'staff_details' );
+function staff_details() {
+  if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $post_id = ($_POST['post_id']) ? $_POST['post_id'] : 0;
+    $html = display_staff_details_html($post_id,true);
+    $response['content'] = $html;
+    echo json_encode($response);
+  }
+  else {
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
+  }
+  die();
+}
 
+
+function display_staff_details_html($post_id,$popUp=null) {
+  $html_content = '';
+  $post = get_post($post_id);
+  if($post) {
+    ob_start();
+    $content = $post->post_content;
+    $content = apply_filters( 'the_content', $content ); ?>
+
+    <?php if ($popUp) { ?>
+      <div id="popUp" class="popup-wrapper">
+        <div class="closediv"><div class="wrap"><a id="close-modal" href="#"><span>x</span></a></div></div>
+        <div class="popup-inner clear">
+        <?php } ?>
+
+          <div class="staff-info clear">
+            <?php  
+              $taxonomy = 'team_type';
+              $photo = get_field('image',$post_id); 
+              $title = $post->post_title;
+              $types = get_the_terms($post_id,$taxonomy);
+              $team_type = '';
+              if($types) {
+                $i=1; foreach($types as $t) {
+                  $comma = ($i>1) ? ', ':'';
+                  $team_type .= $comma . $t->name;
+                  $i++;
+                }
+              }
+            ?>
+
+            <header class="header">
+              <h1 class="entry-title"><?php echo $title; ?></h1>
+              <?php if ($team_type) { ?>
+              <div class="types"><?php echo $team_type ?></div>
+              <?php } ?>
+            </header>
+            <div class="textwrap <?php echo ($photo) ? 'half':'full';?>">
+              <?php echo $content; ?>    
+            </div>
+
+            <?php if ($photo) { ?>
+              <div class="imagediv">
+                <img src="<?php echo $photo['url'] ?>" alt="<?php echo $photo['title'] ?>" />
+              </div>
+            <?php } ?>
+          </div>
+
+        <?php if ($popUp) { ?>
+        </div>
+        <div id="popUpBg" class="overlaybg"></div>
+      </div>
+    <?php } ?>
+
+    <?php
+    $html_content = ob_get_contents();
+    ob_end_clean();
+  }
+  return $html_content;
+}
 

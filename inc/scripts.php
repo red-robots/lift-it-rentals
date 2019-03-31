@@ -34,7 +34,7 @@ function acstarter_scripts() {
 
 	wp_enqueue_script( 
 		'load_more', 
-		get_template_directory_uri() . '/assets/js/custom/loadmore.js', 
+		get_template_directory_uri() . '/assets/js/loadmore.js', 
 		array('jquery'), '20190201', 
 		true 
 	);

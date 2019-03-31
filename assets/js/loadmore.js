@@ -45,4 +45,53 @@ jQuery(document).ready(function ($) {
 
 	});
 
+
+	/* LOAD STAFF DETAILS */
+	$(document).on("click",".staff-info-link,.click-photo",function(e){
+		e.preventDefault();
+		var id = $(this).attr('data-pageid');
+		$.ajax({
+			type : "post",
+			dataType : "json",
+			url : myAjax.ajaxurl,
+			data : {
+				action: "staff_details", 
+				post_id : id,
+			},
+			beforeSend: function(){
+				$(".ml-loader-wrap").show();
+			},
+			success: function(obj) {
+				var content = obj.content;
+				if(content) {
+					$('body').prepend(content);
+					$('#popUp').fadeIn('normal');;
+					$('body').addClass('open-modal');
+				} 
+				$(".ml-loader-wrap").hide();
+			}
+		}); 
+
+	});
+
+	/* Close pop-up */
+	$(document).on("click","#close-modal,#popUpBg",function(e){
+		e.preventDefault();
+		$('body').removeClass('open-modal');
+		$("#popUp").fadeOut('normal',function(){
+			$(this).remove();
+		});
+	});
+
+	$(document).keyup(function(e) {
+	    if (e.key === "Escape") { // escape key maps to keycode `27`
+			if( $("#popUp").length>0 ) {
+				$('body').removeClass('open-modal');
+				$("#popUp").fadeOut("fast",function(){
+					$(this).remove();
+				});
+			}
+	    }
+	});
+
 });

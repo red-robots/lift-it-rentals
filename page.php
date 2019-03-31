@@ -12,9 +12,12 @@
  * @package ACStarter
  */
 
-get_header(); ?>
+get_header(); 
+$banner = get_field('banner_image');
+$has_banner = ($banner) ? 'has-banner':'no-banner';
+?>
 
-	<div id="primary" class="full-content-area default-template clear">
+	<div id="primary" class="full-content-area default-template clear <?php echo $has_banner ?>">
 		<main id="main" class="site-main wrapper" role="main">
 
 			<?php

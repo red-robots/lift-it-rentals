@@ -1280,6 +1280,7 @@ body.open-modal {
 	display: none;
 	@media screen and (min-width: $midwidth) {
 		padding-top: 40px;
+		padding-bottom: 40px;
 	}
 	.overlaybg {
 		position: absolute;

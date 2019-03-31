@@ -2130,7 +2130,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 }.staff-info .imagediv img{width:100%;height:auto}
 body.open-modal{overflow:hidden}
 .popup-wrapper{width:100%;height:100%;position:fixed;top:0;left:0;z-index:10000;padding:20px;box-sizing:border-box;display:none}
-@media screen and (min-width:900px){.popup-wrapper{padding-top:40px}
+@media screen and (min-width:900px){.popup-wrapper{padding-top:40px;padding-bottom:40px}
 }.popup-wrapper .overlaybg{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8)}
 .popup-wrapper .closediv{display:block;width:100%;position:absolute;z-index:100}
 @media screen and (min-width:600px){.popup-wrapper .closediv{display:none}

@@ -34,7 +34,7 @@ get_header(); ?>
 						$c_text = $c['text'];
 						$c_link = ($c['link']) ? $c['link'] : '#';
 							if( $c_title && $c_text ) { ?>
-								<div id="callout-<?php echo $i?>" class="call-out">
+								<div id="callout-<?php echo $i?>" class="call-out animated fadeIn wow">
 									<div class="icon icon<?php echo $i;?>"></div>
 									<h3 class="title"><a href="<?php echo $c_link ?>"><?php echo $c_title ?></a></h3>
 									<div class="text"><?php echo $c_text ?></div>
@@ -63,7 +63,7 @@ get_header(); ?>
 								<div class="svcbox clear has-image-map <?php echo ($j % 2) ? 'odd':'even';?>">
 									<div class="wrapper clear">
 										<div class="contentcol <?php echo ($s_image) ? 'half':'wrapper';?>">
-											<div class="inside clear">
+											<div class="inside clear animated slideInLeft wow">
 												<h3 class="title"><?php echo $s_title; ?></h3>
 												<?php echo $s_desc; ?>
 											</div>
@@ -73,7 +73,7 @@ get_header(); ?>
 											$services_graphic = get_field('services_graphic');
 										?>
 										<?php if ($s_image) { ?>
-										<div class="imagecol">
+										<div class="imagecol animated slideInRight wow">
 											<div id="image_map" class="imagemapdiv">
 												<div id="canvasdiv" class="canvas" style="background-image:url(<?php echo $s_image['url']; ?>);"></div>
 												<img id="main_image" class="canvas-image" data-orig="<?php echo $s_image['url']; ?>" src="<?php echo $s_image['url']; ?>" id="map-image" alt="" usemap="#map" />
@@ -113,7 +113,7 @@ get_header(); ?>
 									</div>
 								</div>	
 							<?php } else { ?>
-								<div class="svcbox clear <?php echo ($j % 2) ? 'odd':'even';?>">
+								<div class="svcbox clear <?php echo ($j % 2) ? 'odd':'even';?> animated slideInUp wow">
 									<?php if ($s_image) { ?>
 									<div class="imagecol">
 										<img src="<?php echo $s_image['sizes']['medium_large'] ?>" alt="<?php echo $s_image['title'] ?>" />

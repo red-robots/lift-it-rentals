@@ -164,5 +164,23 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	
+	align_grey_div();
+
+	$(window).resize(function(){
+	  align_grey_div();
+	});
+
+	function align_grey_div() {
+		$(".about-inside-icon").each(function(){
+			var h = $(this).outerHeight();
+			var heightPx = h + 'px';
+			$(".greydivbg").attr('style','height:'+heightPx);
+		});
+	}
+
+	
+
+
 
 });// END #####################################    END

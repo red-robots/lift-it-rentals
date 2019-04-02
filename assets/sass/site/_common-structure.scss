@@ -15,6 +15,7 @@
 }
 a {
 	color: $color-lime-green; 
+	font-weight: 500;
 	@include transition(all ease-out .3s); 
 }
 body {
@@ -144,6 +145,7 @@ h1,h2,h3,h4,h5,h6 {
 		border-top: 2px solid $color-lime-green;
 	}
 	a {
+		font-weight: 400;
 		@include transition(all ease-out .3s);
 	}
 	.column {

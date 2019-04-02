@@ -12,67 +12,65 @@ get_header(); ?>
 			$about_text = get_field('who_we_are_description');
 		?>
 		<section class="about-content clear">
-			<div class="grey-wrapper clear">
-				<div class="wrapper clear content-inner">
-					<div class="no-flex-row clear">
-						<div class="content-left white-box column js-blocks">
-							<div class="inside clear">
-								<h1 class="col-title"><?php the_title(); ?></h1>
-								<div class="entry-content"><?php echo $about_text; ?></div>
-							</div>
+			<div class="wrapper clear content-inner">
+				<div class="flex-row clear">
+					<div class="content-left white-box column">
+						<div class="inside clear">
+							<h1 class="col-title"><?php the_title(); ?></h1>
+							<div class="entry-content"><?php echo $about_text; ?></div>
 						</div>
+					</div>
 
 
-						<?php
-							$model_title = get_field('model_title');
-							$model_lists = get_field('model_list');
-						?>
+					<?php
+						$model_title = get_field('model_title');
+						$model_lists = get_field('model_list');
+					?>
 
-						<div class="content-right column">
+					<div class="content-right column">
 
-							<div class="contentdiv clear">
-								<?php if ($model_title) { ?>
-								<div class="titlediv"><span><?php echo $model_title ?></span></div>
-								<?php } ?>
-								<?php if ($model_lists) { ?>
-								<div class="model-lists clear">
-									<div class="flex-row clear">
-										<?php $j=1; foreach ($model_lists as $m) { 
-											$m_title = $m['title'];
-											$m_desc = $m['description'];
-											$m_icon = $m['icon']; ?>
-											<div class="flex-col text-center<?php echo ($j==1)? ' first':''?>">
-												<div class="inside clear">
-													<?php if ($m_icon) { ?>
-														<div class="icon"><img src="<?php echo $m_icon['url'] ?>" alt="" /></div>	
-													<?php } ?>	
-													<?php if ($m_title) { ?>
-														<h3 class="title"><?php echo $m_title ?></h3>
-													<?php } ?>	
-													<?php if ($m_desc) { ?>
-														<div class="description"><?php echo $m_desc ?></div>
-													<?php } ?>	
-												</div>
+						<div class="contentdiv clear">
+							<?php if ($model_title) { ?>
+							<div class="titlediv"><span><?php echo $model_title ?></span></div>
+							<?php } ?>
+							<?php if ($model_lists) { ?>
+							<div class="model-lists clear">
+								<div class="flex-row clear">
+									<?php $j=1; foreach ($model_lists as $m) { 
+										$m_title = $m['title'];
+										$m_desc = $m['description'];
+										$m_icon = $m['icon']; 
+										$delay = $j+2;
+										?>
+										<div class="flex-col text-center<?php echo ($j==1)? ' first':''?> animated slideInLeft wow" data-wow-delay="0.<?php echo $delay; ?>s" data-wow-duration="1s">
+											<div class="inside clear about-inside-icon">
+												<?php if ($m_icon) { ?>
+													<div class="icon"><img src="<?php echo $m_icon['url'] ?>" alt="" /></div>	
+												<?php } ?>	
+												<?php if ($m_title) { ?>
+													<h3 class="title"><?php echo $m_title ?></h3>
+												<?php } ?>	
+												<?php if ($m_desc) { ?>
+													<div class="description"><?php echo $m_desc ?></div>
+												<?php } ?>	
 											</div>
-										<?php $j++; } ?>
-									</div>
+										</div>
+									<?php $j++; } ?>
 								</div>
-								<?php } ?>
 							</div>
-							<div class="borders"><span class="first js-blocks"></span><span class="js-blocks"></span><span class="js-blocks"></span></div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
-				<div class="overlay top"></div><div class="overlay bottom"></div>
 			</div>
-			<div class="bottomdiv"><div class="wrapper"><div class="right-overlay"></div></div></div>
+			<div class="greydivbg"></div>
 		</section>
 
 		<?php  
 		$partner_text1 = get_field('our_partners_description');
 		$partner_text2 = get_field('our_partners_box');
 		$partners_image = get_field('our_partners_image'); ?>
-		<section class="section-partners clear">
+		<section class="section-partners clear animated slideInUp wow">
 			<div class="inner clear">
 				<div class="column left">
 					<?php if ($partners_image) { ?>
@@ -107,11 +105,11 @@ get_header(); ?>
 			<div class="inner clear"<?php echo $pImg; ?>>
 				<div class="overlay"></div>
 				<div class="wrapper clear">
-					<div class="column left">
+					<div class="column left animated slideInLeft wow">
 						<h2 class="sub-title">Our Performance and Progress</h2>
 						<div class="textwrap"><?php echo $performance_description; ?></div>
 					</div>
-					<div class="column right">
+					<div class="column right animated slideInRight wow">
 						<div class="inside clear">
 							<div class="desc"><?php echo $performance_industries_desc ?></div>
 							<?php if ($performance_industries) { ?>
@@ -147,7 +145,7 @@ get_header(); ?>
 			$cta_button_link = get_field('cta_button_link');
 		?>
 		<section class="section-quote clear">
-			<div class="wrapper clear">
+			<div class="wrapper clear animated slideInUp wow">
 				<?php if ($quote_image) { ?>
 				<div class="column image">
 					<img src="<?php echo $quote_image['url'] ?>" alt="<?php echo $quote_image['title'] ?>" />

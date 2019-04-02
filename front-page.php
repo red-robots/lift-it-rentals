@@ -66,10 +66,6 @@ get_header(); ?>
 						<?php } ?>
 					<?php } ?>
 				</div>
-
-				<div class="testbutton">
-					<button>Subscribe Now!</button>
-				</div>
 			</div>
 		</section>
 

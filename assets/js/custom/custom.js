@@ -128,11 +128,16 @@ jQuery(document).ready(function ($) {
 			var img_src_hover = $('#img_'+id).attr('data-image');
 			$("#main_image").attr('src',img_src_hover);
 			$("#canvasdiv").attr('style','background-image:url('+img_src_hover+')');
+		
+			$(".info_"+id).trigger("mouseover");
+
 		}, function() {
 			var id = $(this).attr("id");
 			var orig_image = $("#main_image").attr('data-orig');
 			$("#main_image").attr('src',orig_image);
 			$("#canvasdiv").attr('style','background-image:url('+orig_image+')');
+
+			$(".info_"+id).trigger("mouseout");
 		}
 	);
 

@@ -120,5 +120,44 @@ jQuery(document).ready(function ($) {
 
 	});
 
+	$("#image_map map").imageMapResize();
+	$("#svc_map area").hover( 
+		function(){
+			var id = $(this).attr("id");
+			var img = $('.img_' + id).addClass('hover');
+			var img_src_hover = $('#img_'+id).attr('data-image');
+			$("#main_image").attr('src',img_src_hover);
+			$("#canvasdiv").attr('style','background-image:url('+img_src_hover+')');
+		}, function() {
+			var id = $(this).attr("id");
+			var orig_image = $("#main_image").attr('data-orig');
+			$("#main_image").attr('src',orig_image);
+			$("#canvasdiv").attr('style','background-image:url('+orig_image+')');
+		}
+	);
+
+	$(".graphic-info").hover(
+		function(){
+			var id = $(this).attr("data-step");
+			var img = $('.img_' + id).addClass('hover');
+			var img_src_hover = $('#img_'+id).attr('data-image');
+			$("#main_image").attr('src',img_src_hover);
+			$("#canvasdiv").attr('style','background-image:url('+img_src_hover+')');
+		}, function() {
+			var id = $(this).attr("data-step");
+			var orig_image = $("#main_image").attr('data-orig');
+			$("#main_image").attr('src',orig_image);
+			$("#canvasdiv").attr('style','background-image:url('+orig_image+')');
+		}
+	);
+
+	$('.tooltip').tooltipster({
+		interactive: true,
+		maxWidth: 300,
+		functionReady: function(){
+			$('.tooltipster-base').addClass('graph-tooltip');
+		}
+	});
+
 
 });// END #####################################    END

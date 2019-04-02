@@ -337,6 +337,8 @@ h1.entry-title {
 	}
 	.item:hover {
 		.title {
+			padding: 8px 5px 7px;
+			transform: scale(1.1);
 			background: $color-lime-green;
 			color: #FFF;
 		}
@@ -367,6 +369,7 @@ h1.entry-title {
 		background: #FFF;
 		color: $color__text-main;
 		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.22);
+		border-bottom: 3px solid $color-lime-green;
 		@media screen and (min-width: $tabwidth) {
 			width: 48%;
 			float: left;
@@ -720,7 +723,10 @@ h1.entry-title {
 }
 
 .white-box {
+	background: #FFF;
+	border-bottom: 3px solid $color-lime-green;
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.22);
+	color: $color__text-main;
 	.inside {
 		padding: 20px;
 		@media screen and (min-width: $deskwidth) {
@@ -728,7 +734,7 @@ h1.entry-title {
 		}
 	}	
 	.col-title {
-		margin: 0 0;
+		margin: 10px 0 0;
 		font-weight: 500;
 		font-size: 25px;
 		line-height: 1.3;
@@ -736,6 +742,13 @@ h1.entry-title {
 		padding-bottom: 30px;
 		margin-bottom: 30px;
 		border-bottom: 1px solid $color-lime-green;
+	}
+	a {
+		font-weight: 500;
+		&:hover {
+			color: $color-lime-green;
+			opacity: 0.5;
+		}
 	}
 	h3 {
 		font-size: 20px;
@@ -745,6 +758,142 @@ h1.entry-title {
 		margin-left: 15px;
     	padding-left: 25px;
 	}
+}
+.grey-section {
+	background: #FFF;
+	color: #FFF;
+	position: relative;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	overflow: hidden;
+	@media screen and (min-width: $tabwidth) {
+		padding-top: 50px;
+		padding-bottom: 10px;
+	}
+	&:before {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: $color__text-main;
+		position: absolute;
+		left: 0;
+		top: 80px;
+		@media screen and (min-width: $tabwidth) {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			height: 68%;
+		}
+	}
+	.content-wrapper {
+		position: relative;
+		z-index: 10;
+		@media screen and (min-width: $tabwidth) {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-justify(center);
+			@include flexbox-align-items(center);
+		}
+	}
+
+	.col-left {
+		margin-bottom: 30px;
+		h2:first-child {
+			margin: 10px 0 0;
+			font-weight: 500;
+			font-size: 25px;
+			line-height: 1.3;
+			text-transform: uppercase;
+			padding-bottom: 30px;
+			margin-bottom: 30px;
+			border-bottom: 1px solid $color-lime-green;
+		}
+		@media screen and (min-width: $tabwidth) {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			width: 50%;
+			float: left;
+		}
+	}
+
+	.col-right {
+		@media screen and (min-width: $tabwidth) {
+			width: 50%;
+			float: left;
+		}
+		.inside {
+			@media screen and (min-width: $tabwidth) {
+				padding-left: 7%;
+				padding-top: 7%;
+				padding-bottom: 7%;
+			}
+		}
+	}
+}
+
+.call-out {
+	position: relative;
+	padding-top: 25px;
+    margin-top: 30px;
+	border-top: 1px solid #8a8b8d;
+	padding-left: 80px;
+	@media screen and (min-width: $tabwidth) {
+		padding-left: 108px;
+	}
+	&#callout-1 {
+		margin-top: 0;
+		border-top: none;
+	}
+	.icon {
+		width: 65px;
+    	height: 57px;
+		position: absolute;
+		top: 30px;
+		left: 0;
+		background-image: url('images/icons_sprite.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		@media screen and (min-width: $tabwidth) {
+			width: 85px;
+    		height: 75px;
+		}
+		&.icon1 {
+			background-position: 3px 0;
+		}
+		&.icon2 {
+			width: 65px;
+			height: 60px;
+			background-position: -70px 0;
+			@media screen and (min-width: $tabwidth) {
+				background-position: -84px 0;
+				width: 85px;
+    			height: 75px;
+			}
+		}
+	}
+
+	p {
+		margin-top: 0;
+	}
+	.title {
+		margin: 0 0 10px;
+		font-weight: 500;
+		font-size: 20px;
+    	line-height: 1.2;
+    	@media screen and (min-width: $tabwidth) {
+    		font-size: 25px;
+    	}
+		a {
+			text-decoration: none;
+			color: $color-lime-green;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	
 }
 
 .about-content {
@@ -1454,3 +1603,334 @@ body.open-modal {
 		}
 	}
 }
+.services-info-section {
+	.content-inner {
+		padding-top:  0;
+		padding-bottom: 0;
+		@media screen and (min-width: $tabwidth) {
+			padding-top:  30px;
+		}
+	}
+	.svcbox {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		position: relative;
+		box-sizing: border-box;
+		@media screen and (min-width: $tabwidth) {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			height: 100%;
+		}
+		&:first-child {
+			padding-top: 0;
+		}
+	}
+	.title {
+		margin: 0 0 20px;
+		padding-bottom: 20px;
+		font-weight: 500;
+		font-size: 25px;
+		text-transform: uppercase;
+		border-bottom: 1px solid $color-lime-green;
+	}
+	.imagecol {
+		margin-bottom: 30px;
+		@media screen and (min-width: $tabwidth) {
+			margin-bottom: 0;
+			width: 38%;
+			float: left;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.inside {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.contentcol {
+		&.half {
+			@media screen and (min-width: $tabwidth) {
+				width: 62%;
+				float: left;
+			}
+			@media screen and (min-width: $deskwidth) {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.inside {
+				@media screen and (min-width: $tabwidth) {
+					width: 95%;
+					float: left;
+					padding-left: 5%;
+					padding-right: 0;
+					box-sizing: border-box;
+				}
+				@media screen and (min-width: $midwidth) {
+					width: 90%;
+				}
+			}
+		}
+	}
+	.has-image-map {
+		background: $color-subtle-grey;
+	}
+	.svcbox.odd {
+		.contentcol {
+			&.half {
+				@media screen and (min-width: $deskwidth) {
+					right: 0;
+				}
+			}
+		}
+	}
+	.svcbox.even {
+		.imagecol {
+			@media screen and (min-width: $tabwidth) {
+				float: right;
+			}
+		}
+		.contentcol {
+			&.half {
+				.inside {
+					@media screen and (min-width: $tabwidth) {
+						float: right;
+						padding-left: 0;
+						padding-right: 5%;
+					}
+				}
+			}
+		}
+	}
+
+	.svcbox.has-image-map {
+		margin-top: 20px;
+		@media screen and (min-width: $tabwidth) {
+			margin-top: 40px;
+		}
+		.wrapper {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.contentcol.half {
+			width: 100%;
+			padding-right: 0;
+			@media screen and (min-width: $midwidth) {
+				width: 53%;
+			}
+			@media screen and (min-width: $deskwidth) {
+				width: 60%;
+			}
+			.inside {
+				width: 100%;
+				padding-right: 0;
+				padding-left: 0;
+				@media screen and (min-width: $midwidth) {
+					padding-right: 6%;
+					padding-left: 0;
+					width: 93%;
+					float: left;
+				}
+			}
+		}
+		.imagecol {
+			width: 100%;
+			@media screen and (min-width: $midwidth) {
+				width: 45%;
+			}
+			@media screen and (min-width: $deskwidth) {
+				width: 38%;
+			}
+		}
+	}
+
+	.imagemapdiv {
+		position:relative;
+		margin: 0 auto;
+		width: 400px;
+		float: none;
+		@media screen and (min-width: $midwidth) {
+			width: 400px;
+			float: left;
+		}
+		@media screen and (min-width: $deskwidth) {
+			width: 480px;
+		}
+		.graphimg,
+		.canvas, img {
+			width: 100%;
+			height: auto;
+		}
+		.graphimg,
+		.canvas {
+			width: 100%;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			@media screen and (min-width: $midwidth) {
+				height: 400px;
+			}
+			@media screen and (min-width: $deskwidth) {
+				height: 480px;
+			}
+		}
+		.canvas {
+			z-index: 4;
+		}
+		.canvas-image {
+			opacity: 0;
+			z-index: 5;
+			position: relative;
+		}
+		img.stephover {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -999;
+			&.hover {
+				z-index: 5;
+			}
+		}
+	}
+	.graphimg {
+		z-index: 1;
+	}
+}
+.graphic-info {
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	z-index: 20;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+	line-height: 1.2;
+	color: #FFF;
+	width: 115px;
+    text-align: center;
+    z-index: 10;
+    @media screen and (min-width: $deskwidth) {
+    	font-size: 16px;
+    }
+    .num {
+    	position: absolute;
+    	font-weight: 600;
+    	font-size: 28px;
+    	position: absolute;
+    }
+	.description {
+		display: none;
+	}
+	&.graphic4 {
+		top: 19%;
+		left: 13%;
+		@media screen and (min-width: $midwidth) {
+			top: 19%;
+			left: 14%;
+		}
+		.num {
+			top: -34px;
+			right: -38px;
+			@media screen and (min-width: $deskwidth) {
+				top: -34px;
+				right: -38px;
+			}
+		}
+	}
+	&.graphic3 {
+		bottom: 26%;
+    	left: 12%;
+		@media screen and (min-width: $midwidth) {
+			bottom: 26%;
+			left: 12%;
+		}
+		.num {
+			top: -80px;
+			left: 6px;
+			@media screen and (min-width: $deskwidth) {
+				top: -90px;
+				left: 6px;
+			}
+		}
+	}
+	&.graphic2 {
+		bottom: 18%;
+    	right: 18%;
+		@media screen and (min-width: $midwidth) {
+			bottom: 19%;
+			right: 17%;
+		}
+		.num {
+			bottom: -28px;
+			left: -21px;
+			@media screen and (min-width: $deskwidth) {
+				bottom: -24px;
+				left: -40px;
+			}
+		}
+	}
+	&.graphic1 {
+		top: 25%;
+		right: 7%;
+		@media screen and (min-width: $midwidth) {
+			top: 26%;
+			right: 6%;
+		}
+		@media screen and (min-width: $deskwidth) {
+			top: 26%;
+			right: 9%;
+		}
+		.num {
+			bottom: -68px;
+			right: 16px;
+			@media screen and (min-width: $deskwidth) {
+				bottom: -87px;
+				right: 22px;
+			}
+		}
+	}
+}
+
+.tp-bullet-items {
+	margin: 0 0 0 15px;
+	padding: 0 0;
+	list-style: none;
+	li {
+		position: relative;
+		padding-left: 18px;
+		margin-bottom: 5px;
+		font-size: 13px;
+	}
+	.alpha {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+.tp_title {
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	font-weight: 500;
+}
+.graph-tooltip  {
+	.tooltipster-box {
+		background: rgba(0,0,0,.65);
+		border: none;
+		border-radius: 0px;
+		border-top: 3px solid $color-lime-green;
+	}
+	.tooltipster-arrow-border,
+	.tooltipster-arrow-background {
+		display: none;
+	}
+}
+
+

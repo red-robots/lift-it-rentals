@@ -66,11 +66,16 @@ get_header(); ?>
 						<?php } ?>
 					<?php } ?>
 				</div>
+
+				<div class="testbutton">
+					<button>Subscribe Now!</button>
+				</div>
 			</div>
 		</section>
 
 	<?php endwhile; ?>
 </div><!-- #primary -->
+
 
 <?php
 get_footer();

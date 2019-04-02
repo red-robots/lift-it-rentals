@@ -1937,7 +1937,9 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 40%{opacity:1}
 }@keyframes opaque{0%,40%,100%{opacity:.1}
 40%{opacity:1}
-}.site{position:relative}
+}input[type=submit],button,.btn-style{cursor:pointer;display:inline-block;outline:0;-webkit-appearance:none;border-radius:0;text-decoration:none;background:transparent;color:#58595b;text-transform:uppercase;padding:8px 25px 6px;font-size:15px;font-weight:400;line-height:1.2;box-shadow:none;text-shadow:none;border:1px solid #aacf37;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
+input[type=submit]:hover,button:hover,.btn-style:hover{background:#aacf37;color:#FFF;-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);padding:10px 28px 8px;box-shadow:none;border:1px solid #aacf37}
+.site{position:relative}
 .default-template{margin-top:90px}
 .default-template.has-banner{margin-top:50px}
 .site-main{min-height:20em}

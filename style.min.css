@@ -2330,7 +2330,12 @@ body.open-modal{overflow:hidden}
 .services-info-section .graphic-info.graphic2 .num{bottom:-18px;left:17px}
 .services-info-section .graphic-info.graphic1 .name{top:-10px;left:13px}
 .services-info-section .graphic-info.graphic1 .num{bottom:-46px;right:17px}
-}.blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
+}.page-link-list ul{margin:0;padding:0;list-style:none}
+.page-link-list .linklist ul{margin-left:15px}
+.page-link-list li{position:relative;padding-left:15px}
+.page-link-list li:before{content:"";display:block;width:5px;height:5px;background:#aacf37;position:absolute;top:7px;left:0}
+.page-link-list a{text-decoration:none}
+.blog .format-aside .entry-title,.archive .format-aside .entry-title{display:none}
 .comment-content a{word-wrap:break-word}
 .bypostauthor{display:block}
 .infinite-scroll .posts-navigation,.infinite-scroll.neverending .site-footer{display:none}

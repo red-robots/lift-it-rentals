@@ -2017,3 +2017,31 @@ body.open-modal {
 		}
 	}
 }
+
+.page-link-list {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	.linklist ul {
+		margin-left: 15px;
+	}
+	li {
+		position: relative;
+		padding-left: 15px;
+		&:before {
+			content:"";
+			display: block;
+			width: 5px;
+			height: 5px;
+			background: $color-lime-green;
+			position: absolute;
+			top: 7px;
+			left: 0;
+		}
+	}
+	a {
+		text-decoration: none;
+	}
+}

@@ -467,6 +467,7 @@ h1.entry-title {
 	a {
 		color: #FFF;
 		text-decoration: none;
+		font-weight: 400;
 		&:hover {
 			color: $color-lime-green;
 		}
@@ -1170,7 +1171,7 @@ h1.entry-title {
 }
 .textwrap {
 	h3 {
-		font-size: 20px;
+		font-size: 17px;
 		line-height: 1.3;
 	}
 }

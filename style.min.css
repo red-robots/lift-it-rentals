@@ -1870,6 +1870,7 @@ html[xmlns] .flexslider .slides{display:block}
 a{color:#aacf37;font-weight:500;-webkit-transition:all ease-out .3s;transition:all ease-out .3s}
 body{font-size:14px}
 h1,h2,h3,h4,h5,h6{font-weight:600}
+h3{font-size:17px;line-height:1.3}
 .text-center{text-align:center}
 .text-left{text-align:left}
 .text-right{text-align:right}
@@ -2030,7 +2031,7 @@ input[type=submit]:hover,button:hover,.btn-style:hover{background:#aacf37;color:
 .newslist .entries{overflow-x:hidden;overflow-y:scroll;height:312px;position:relative;padding-bottom:30px}
 .newslist .entries:after{content:""}
 .newslist .post-title{margin:0;font-weight:400;font-size:14px;line-height:1.5}
-.newslist a{color:#FFF;text-decoration:none}
+.newslist a{color:#FFF;text-decoration:none;font-weight:400}
 .newslist a:hover{color:#aacf37}
 .newslist .entry{position:relative;margin-top:20px;padding-left:90px;padding-right:15px}
 .newslist .entry.first{margin-top:0}
@@ -2167,7 +2168,7 @@ input[type=submit]:hover,button:hover,.btn-style:hover{background:#aacf37;color:
 @media screen and (min-width:600px){.section-partners .column.right{width:60%;float:right;margin-top:7%}
 }@media screen and (min-width:600px){.section-partners .textwrap{width:95%;float:left}
 }@media screen and (min-width:900px){.section-partners .textwrap{width:70%;float:left}
-}.textwrap h3{font-size:20px;line-height:1.3}
+}.textwrap h3{font-size:17px;line-height:1.3}
 .section-performance{position:relative}
 .section-performance .inner{width:100%;background-size:cover;background-position:bottom center;background-color:#26688c;color:#FFF;padding-top:50px;padding-bottom:50px;position:relative}
 @media screen and (min-width:600px){.section-performance .inner{padding-top:80px;padding-bottom:80px}

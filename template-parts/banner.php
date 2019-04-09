@@ -13,21 +13,33 @@ if( is_front_page() || is_home() ) {
 		<img src="<?php echo $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" />
 		<?php if ($tagline) { ?>
 		<div class="caption text-center">
-			<div class="tagline"><?php echo $tagline ?></div>
+			<div class="tagline">
+				<?php echo $tagline ?>
+				<div class="contact-cta">
+					<a href="<?php bloginfo('url'); ?>/contact">
+						<button class="green">Contact Us Now</button>
+					</a>
+				</div>
+			</div>
 		</div>	
+
 		<?php } ?>
 	</div>
 	<?php } ?>
 <?php } else { ?>
 
 	<?php if($banner) { ?>
-	<div class="subpage-banner clear<?php echo $is_autoheight;?>">
-		<img src="<?php echo $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" />
-		<div class="banner-image" style="background-image:url('<?php echo $banner['url']; ?>');"></div>
-		<?php if ($banner_caption) { ?>
-		<div class="caption <?php echo $alignment; ?>"><div class="inside"><?php echo $banner_caption ?></div></div>		
-		<?php } ?>
-	</div>
+		<div class="subpage-banner clear<?php echo $is_autoheight;?>">
+			<img src="<?php echo $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" />
+			<div class="banner-image" style="background-image:url('<?php echo $banner['url']; ?>');"></div>
+			<?php if ($banner_caption) { ?>
+			<div class="caption <?php echo $alignment; ?>">
+				<div class="inside">
+					<span class="highlight highlight--wrapping"><?php echo $banner_caption ?></span>
+				</div>
+			</div>		
+			<?php } ?>
+		</div>
 	<?php } ?>
 
 <?php } ?>

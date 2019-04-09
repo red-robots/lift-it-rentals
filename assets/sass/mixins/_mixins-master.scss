@@ -66,3 +66,8 @@
 	-webkit-transform: translateX($value1) translateY($value2);
 	transform: translateX($value1) translateY($value2);
   }
+  @mixin boxshadow() {
+  	-webkit-box-shadow: 0px 6px 15px -1px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 6px 15px -1px rgba(0,0,0,0.2);
+box-shadow: 0px 6px 15px -1px rgba(0,0,0,0.2);
+  }

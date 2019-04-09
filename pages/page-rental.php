@@ -36,8 +36,15 @@ get_header(); ?>
 							if( $c_title && $c_text ) { ?>
 								<div id="callout-<?php echo $i?>" class="call-out animated fadeIn wow">
 									<div class="icon icon<?php echo $i;?>"></div>
+									<?php if($i==1) { ?><div class="calloutwrap"><?php } ?>
 									<h3 class="title"><a href="<?php echo $c_link ?>"><?php echo $c_title ?></a></h3>
 									<div class="text"><?php echo $c_text ?></div>
+									<?php if($i==1) { ?>
+										</div>
+										<div class="calloutbtn">
+											<a href="<?php echo $c_link ?>">Contact</a>
+										</div>
+									<?php } ?>
 								</div>	
 							<?php $i++; } ?>
 						<?php } ?>
@@ -66,6 +73,7 @@ get_header(); ?>
 											<div class="inside clear animated slideInLeft wow">
 												<h3 class="title"><?php echo $s_title; ?></h3>
 												<?php echo $s_desc; ?>
+												<a href="<?php bloginfo('url'); ?>/contact/"><button class="green">Contact Us</button></a>
 											</div>
 										</div>
 
@@ -123,6 +131,7 @@ get_header(); ?>
 										<div class="inside clear">
 											<h3 class="title"><?php echo $s_title; ?></h3>
 											<?php echo $s_desc; ?>
+											<a href="<?php bloginfo('url'); ?>/contact/"><button class="green">Contact Us</button></a>
 										</div>
 									</div>
 								</div>	

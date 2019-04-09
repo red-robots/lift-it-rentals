@@ -402,6 +402,13 @@ input[type=submit], button, .btn-style {
 		box-shadow: none;
 		border: 1px solid $color-lime-green;
 	}
+	&.green {
+		background-color: $color-lime-green;
+		color: #fff;
+		&:hover {
+			// opacity: .7;
+		}
+	}
 }
 
 .wp-caption img[class*="wp-image-"] {
@@ -416,4 +423,13 @@ input[type=submit], button, .btn-style {
     text-decoration: none;
     margin-bottom: 25px;
     margin-top: 15px;
+}
+.endofpost {
+	width: 100%;
+	padding: 10px 20px; 
+	background-color: $color__text-main;
+	color: #fff;
+	border-bottom: 3px solid $color-lime-green;
+	float: left;
+	margin: 0 0 30px 0;
 }

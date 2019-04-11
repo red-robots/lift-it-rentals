@@ -8,8 +8,8 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="full-content-area default-template clear">
+<div class="wrapper">
+	<div id="primary" class="content-area default-template clear">
 		<main id="main" class="site-main wrapper" role="main">
 
 		<?php
@@ -30,5 +30,9 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+<?php
+get_sidebar();
+?>
+</div>
 <?php
 get_footer();

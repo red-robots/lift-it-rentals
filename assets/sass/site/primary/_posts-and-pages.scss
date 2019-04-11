@@ -207,7 +207,12 @@ h1.entry-title {
 		
 	}
 }
-
+.about-grey {
+	background-color: $color-dark-grey;
+	@media screen and (min-width: $tabwidth) {
+		background-color: rgba($color-dark-grey, 0);
+	}
+}
 .page-template-page-team .subpage-banner,
 .page-template-page-about .subpage-banner {
 	@media screen and (min-width: $tabwidth) {

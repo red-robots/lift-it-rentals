@@ -42,7 +42,7 @@ get_header(); ?>
 										$m_icon = $m['icon']; 
 										$delay = $j+2;
 										?>
-										<div class="flex-col text-center<?php echo ($j==1)? ' first':''?> animated slideInLeft wow" data-wow-delay="0.<?php echo $delay; ?>s" data-wow-duration="1s">
+										<div class="flex-col about-grey text-center<?php echo ($j==1)? ' first':''?> animated slideInLeft wow" data-wow-delay="0.<?php echo $delay; ?>s" data-wow-duration="1s">
 											<div class="inside clear about-inside-icon">
 												<?php if ($m_icon) { ?>
 													<div class="icon"><img src="<?php echo $m_icon['url'] ?>" alt="" /></div>	

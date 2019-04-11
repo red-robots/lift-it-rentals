@@ -6,7 +6,7 @@
  *
  * @package ACStarter
  */
-$end = get_field('end_of_article_info', 'option');
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -28,9 +28,7 @@ $end = get_field('end_of_article_info', 'option');
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 
-			if( $end ) {
-				echo '<div class="endofpost">'.$end.'</div>';
-			}
+			
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'acstarter' ),

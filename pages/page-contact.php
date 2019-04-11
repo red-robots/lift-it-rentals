@@ -9,7 +9,7 @@ $banner = get_field('banner_image');
 $has_banner = ($banner) ? 'has-banner':'no-banner';
 ?>
 
-<div id="primary" class="full-content-area contactpage clear <?php echo $has_banner ?>">
+<div id="primary" class="full-content-area contactpage clear <?php echo $has_banner ?> clear wrapper-grey">
 	<main id="main" class="site-main wrapper" role="main">
 		<?php while ( have_posts() ) : the_post(); 
 			$form = get_field('form'); 

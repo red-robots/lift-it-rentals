@@ -4,10 +4,14 @@
  *
  */
 
-get_header(); ?>
-<div id="primary" class="full-content-area clear wrapper-grey">
+get_header(); 
+$banner = get_field('banner_image');
+$has_banner = ($banner) ? 'has-banner':'no-banner';
+?>
+
+<div id="primary" class="full-content-area newspage clear <?php echo $has_banner ?> clear wrapper-grey">
 	<main id="main" class="site-main wrapper" role="main">
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post();  ?>
 
 			<div class="latestnews newsCol">
 				<div class="inside clear">

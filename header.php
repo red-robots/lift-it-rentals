@@ -51,3 +51,5 @@
 	<?php get_template_part('template-parts/banner') ?>
 
 	<div id="content" class="site-content clear">
+
+	<?php if(is_page('news')) { ?><div class="greybar"></div><?php } ?>

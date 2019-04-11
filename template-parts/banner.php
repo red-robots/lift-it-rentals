@@ -17,7 +17,7 @@ if( is_front_page() || is_home() ) {
 				<?php echo $tagline ?>
 				<div class="contact-cta">
 					<a href="<?php bloginfo('url'); ?>/contact">
-						<button class="green">Contact Us Now</button>
+						<button class="green">Start Now</button>
 					</a>
 				</div>
 			</div>

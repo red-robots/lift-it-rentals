@@ -52,4 +52,4 @@
 
 	<div id="content" class="site-content clear">
 
-	<?php if(is_page('news')) { ?><div class="greybar"></div><?php } ?>
+	<?php if(is_page('news')) { ?><!-- <div class="greybar"></div> --><?php } ?>

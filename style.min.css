@@ -2197,9 +2197,10 @@ input[type=submit].green,button.green,.btn-style.green{background-color:#aacf37;
 .section-performance .sub-title{color:#FFF}
 @media screen and (min-width:600px){.section-performance .column{width:50%;float:left}
 }@media screen and (min-width:600px){.section-performance .column.right{padding-left:50px}
-}.section-performance .column.right .inside{width:70%;margin:0 auto;padding:20px 20px 10px;background:rgba(0,0,0,0.5);color:#FFF}
-@media screen and (min-width:600px){.section-performance .column.right .inside{width:90%;float:left;margin:63px 0 0}
-}@media screen and (min-width:900px){.section-performance .column.right .inside{width:65%}
+}.section-performance .column.right .inside{width:90%;margin:0 auto;padding:20px 20px 10px;background:rgba(0,0,0,0.5);color:#FFF}
+@media screen and (min-width:600px){.section-performance .column.right .inside{width:98%;float:left;margin:63px 0 0}
+}@media screen and (min-width:900px){.section-performance .column.right .inside{width:90%}
+}@media screen and (min-width:1200px){.section-performance .column.right .inside{width:70%}
 }.section-performance .column.right .desc{color:#aacf37;font-weight:600}
 .section-performance .column .lists{margin-top:25px;text-align:center}
 .section-performance .column .items-wrap{display:inline-block}

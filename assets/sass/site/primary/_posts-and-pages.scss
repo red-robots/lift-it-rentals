@@ -728,6 +728,9 @@ h1.entry-title {
 	padding-top: 50px;
 	padding-bottom: 25px;
 	background: #f1f2f2;
+	&:focus {
+		outline: none;
+	}
 	.team-type {
 		padding-top: 50px;
 		@media screen and (min-width: $tabwidth) {

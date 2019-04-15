@@ -15,8 +15,10 @@ jQuery(document).ready(function ($) {
 	$(window).scroll(function() {
 	  if( $(this).scrollTop() > navHeader ) {
 	    $('#masthead').addClass(stickyDiv);
+	    $('body').addClass('stickynav-on')
 	  } else {
 	    $('#masthead').removeClass(stickyDiv);
+	    $('body').removeClass('stickynav-on')
 	    $("#primary-menu li a").removeClass('active');
 	  }
 	});

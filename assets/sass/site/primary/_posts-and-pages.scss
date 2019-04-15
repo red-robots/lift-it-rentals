@@ -126,7 +126,7 @@ h1.entry-title {
 		height: auto;
 		margin-top: 55px;
 		@media screen and (min-width: $tabwidth) {
-			margin-top: 0;
+			margin-top: 2px;
 		}
 		img {
 			display: block;
@@ -237,6 +237,7 @@ h1.entry-title {
 	}
 }
 
+.page-template-page-rental .subpage-banner,
 .page-template-page-about .subpage-banner {
 	margin-top: 30px;
 	@media screen and (min-width: $tabwidth) {

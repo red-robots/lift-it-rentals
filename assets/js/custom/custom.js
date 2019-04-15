@@ -6,6 +6,20 @@
  */
 
 jQuery(document).ready(function ($) {
+
+	/* Stick Navigation */
+	var navigation = $("#masthead .wrapper");
+	var stickyDiv = "sticky";
+	var navHeader = $('#masthead').height();
+
+	$(window).scroll(function() {
+	  if( $(this).scrollTop() > navHeader ) {
+	    $('#masthead').addClass(stickyDiv);
+	  } else {
+	    $('#masthead').removeClass(stickyDiv);
+	  }
+	});
+
 	
 	/*
 	*

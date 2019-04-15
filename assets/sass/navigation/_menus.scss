@@ -191,11 +191,11 @@
 
 .menu-toggle {
 	display: block;
-	border: none;
 	-webkit-appearance: none;
 	outline: none;
 	box-shadow: none;
 	border-radius: 0;
+	border: none;
 	text-indent: -999em;
 	background: transparent;
 	position: absolute;
@@ -213,6 +213,9 @@
 		outline: none;
 		box-shadow: none;
 		background: transparent;
+		border: none;
+		transform: none;
+		padding: 0 0;
 	}
 	i,i:before,i:after {
 		display: block;

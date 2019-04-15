@@ -1692,7 +1692,7 @@ a:hover,a:active{outline:0}
 .main-navigation .menu ul li.menu-item-has-children:hover:before{margin-right:-3px;border-left:4px solid #aacf37}
 }.main-navigation .menu ul a{display:block;padding:2px 0}
 @media screen and (min-width:600px){.main-navigation .menu ul a{padding:3px 15px}
-}.main-navigation .menu ul li:hover>a,.main-navigation .menu ul li.current_page_item>a{color:#aacf37}
+}.main-navigation .menu ul li:hover>a,.main-navigation .menu ul li a.active,.main-navigation .menu ul li.current_page_item>a{color:#aacf37}
 @media screen and (min-width:600px){.main-navigation .menu li:hover>ul{max-height:400px;visibility:visible;opacity:1}
 }.main-navigation .menu>li>ul{padding-bottom:10px}
 @media screen and (min-width:600px){.main-navigation .menu>li>ul{padding-top:6px;padding-bottom:6px}

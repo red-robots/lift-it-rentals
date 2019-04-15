@@ -164,6 +164,7 @@
 		}
 	}
 	.menu ul li:hover > a,
+	.menu ul li a.active,
 	.menu ul li.current_page_item > a {
 		color: $color-lime-green;
 	}

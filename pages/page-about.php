@@ -67,6 +67,7 @@ get_header(); ?>
 		</section>
 
 		<?php  
+		$our_partners_title = get_field('our_partners_title');
 		$partner_text1 = get_field('our_partners_description');
 		$partner_text2 = get_field('our_partners_box');
 		$partners_image = get_field('our_partners_image'); ?>
@@ -79,7 +80,7 @@ get_header(); ?>
 				</div>
 				<div class="column right">
 					<div class="textwrap">
-						<h2 class="sub-title">Our Partners</h2>
+						<h2 class="sub-title"><?php echo $our_partners_title ?></h2>
 						<div class="description">
 							<?php if ($partner_text1) { ?>
 								<div class="textgroup1"><?php echo $partner_text1; ?></div>
@@ -94,6 +95,7 @@ get_header(); ?>
 		</section>
 
 		<?php  
+			$performance_section_title = get_field('performance_section_title');
 			$performance_description = get_field('our_performance_description');
 			$performance_imgBg = get_field('performance_image_backround');
 			$pImg = ($performance_imgBg) ? ' style="background-image:url('.$performance_imgBg['url'].')"':'';
@@ -106,7 +108,7 @@ get_header(); ?>
 				<div class="overlay"></div>
 				<div class="wrapper clear">
 					<div class="column left animated slideInLeft wow">
-						<h2 class="sub-title">Our Performance and Progress</h2>
+						<h2 class="sub-title"><?php echo $performance_section_title; ?></h2>
 						<div class="textwrap"><?php echo $performance_description; ?></div>
 					</div>
 					<div class="column right animated slideInRight wow">

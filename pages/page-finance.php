@@ -96,6 +96,8 @@ get_header(); ?>
 		<?php 
 		$b_left_column_title = get_field('left_column_title'); 
 		$b_left_column_text = get_field('left_column_text'); 
+		$left_column_btn_name = get_field('left_column_btn_name'); 
+		$left_column_btn_link = get_field('left_column_btn_link'); 
 		$b_image_div = get_field('bottom_image_bg'); 
 		$icons_list_title = get_field('icons_list_title'); 
 		$icons_list = get_field('icons_list'); 
@@ -109,7 +111,12 @@ get_header(); ?>
 				<div class="wrapper clear">
 					<div class="column left animated slideInLeft wow">
 						<h2 class="sub-title"><?php echo $b_left_column_title; ?></h2>
-						<div class="textwrap"><?php echo $b_left_column_text; ?></div>
+						<div class="textwrap">
+							<?php echo $b_left_column_text; ?>
+							<?php if ($left_column_btn_name && $left_column_btn_link) { ?>
+							<div class="buttondiv"><a class="btn-style green" href="<?php echo $left_column_btn_link ?>"><?php echo $left_column_btn_name ?></a></div>			
+							<?php } ?>		
+						</div>
 					</div>
 					<div class="column right animated slideInRight wow">
 						<div class="inside clear">
